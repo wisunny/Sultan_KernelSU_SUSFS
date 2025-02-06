@@ -37,18 +37,19 @@ jobs:
           echo "Cloning AnyKernel3 and other dependencies..."
     
           # Define the branch names using the matrix values
-          ANYKERNEL_BRANCH="15.0.0-sultan-zuma"
+          ANYKERNEL_BRANCH="14.0.0-sultan-zuma"
           SUSFS_BRANCH="gki-android14-5.15"
+          KERNEL_BRANCH="14.0.0-sultan"
 
           # Debug print the branches
           echo "Using branch for AnyKernel3: $ANYKERNEL_BRANCH"
           echo "Using branch for SUSFS: $SUSFS_BRANCH"
 
           # Clone repositories using the branch names
-          git clone https://github.com/TheWildJames/AnyKernel3.git -b "$ANYKERNEL_BRANCH"
+          git clone https://github.com/wisunny/AnyKernel3.git -b "$ANYKERNEL_BRANCH"
           git clone https://gitlab.com/simonpunk/susfs4ksu.git -b "$SUSFS_BRANCH"
           git clone https://github.com/TheWildJames/kernel_patches.git
-          git clone https://github.com/kerneltoast/android_kernel_google_zuma
+          git clone https://github.com/kerneltoast/android_kernel_google_zuma -b "$KERNEL_BRANCH"
       
       - name: Add KernelSU
         run: |
